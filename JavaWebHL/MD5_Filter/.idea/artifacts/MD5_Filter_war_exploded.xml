@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="MD5_Filter:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/MD5_Filter_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="MD5_Filter/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="MD5_Filter" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
