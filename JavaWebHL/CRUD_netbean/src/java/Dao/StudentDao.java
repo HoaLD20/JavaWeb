@@ -49,4 +49,23 @@ public class StudentDao {
 
         return ps.executeUpdate();
     }
+    
+    public Student getStudentInfo(String username) throws SQLException{
+        String sql = "select * from student where username = ?";
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, username);
+        ResultSet rs = ps.executeQuery();
+        Student s = new Student();
+        while(rs.next()){
+            s.setUsername(rs.getString("username"));
+            s.setPassword(rs.getString("password"));
+            s.setFullname(rs.getString("fullname"));
+            s.setGender(rs.getString("gender"));
+            s.setBirthday(rs.getString("birthday"));
+            s.setEmail(rs.getString("email"));
+            s.setAddress(rs.getString("address"));
+        }
+        return s;
+        
+    }
 }

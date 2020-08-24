@@ -71,12 +71,24 @@ public class StudentController extends HttpServlet {
                 String page = request.getParameter("page");
 
                 if (page.compareTo("") == 0 || page.compareTo("index") == 0) {
-                    dispatcher = request.getRequestDispatcher("index.jsp");
-                    dispatcher.forward(request, response);
+                    response.sendRedirect("StudentController");
                 }
                 if (page.compareTo("add") == 0) {
                     dispatcher = request.getRequestDispatcher("addnew.jsp");
                     dispatcher.forward(request, response);
+                }
+                if (page.compareTo("edit") == 0) {
+                    String id = request.getParameter("id");
+                    Student student = stdao.getStudentInfo(id);
+                    if (student != null) {
+                        getServletContext().setAttribute("userinfo", student);
+                        dispatcher = request.getRequestDispatcher("update.jsp");
+                        dispatcher.forward(request, response);
+                    }
+                    else{
+                        response.sendRedirect("StudentController");
+                    }
+
                 }
             } else {
                 ResultSet rs = (ResultSet) stdao.getStudent();
