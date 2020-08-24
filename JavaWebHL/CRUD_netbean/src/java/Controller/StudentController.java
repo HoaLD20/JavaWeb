@@ -6,6 +6,7 @@
 package Controller;
 
 import Dao.StudentDao;
+import Model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -66,22 +67,25 @@ public class StudentController extends HttpServlet {
             RequestDispatcher dispatcher;
             StudentDao stdao = new StudentDao();
             if (request.getParameter("page") != null) {
-                
+
                 String page = request.getParameter("page");
-                
+
                 if (page.compareTo("") == 0 || page.compareTo("index") == 0) {
                     dispatcher = request.getRequestDispatcher("index.jsp");
+                    dispatcher.forward(request, response);
+                }
+                if (page.compareTo("add") == 0) {
+                    dispatcher = request.getRequestDispatcher("addnew.jsp");
                     dispatcher.forward(request, response);
                 }
             } else {
                 ResultSet rs = (ResultSet) stdao.getStudent();
                 getServletContext().setAttribute("studentList", rs);
-                
-                
+
                 dispatcher = request.getRequestDispatcher("index.jsp");
                 dispatcher.forward(request, response);
             }
-            
+
 //            processRequest(request, response);
         } catch (ClassNotFoundException ex) {
             System.out.println("error doget");
@@ -102,7 +106,34 @@ public class StudentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        if (request.getParameter("btnsubmit") != null) {
+            Student student = new Student();
+            student.setUsername(request.getParameter("txtusername"));
+            student.setPassword(request.getParameter("txtpassword"));
+            student.setFullname(request.getParameter("txtfullname"));
+            student.setGender(request.getParameter("txtgender"));
+            student.setBirthday(request.getParameter("txtbirthday"));
+            student.setEmail(request.getParameter("txtemail"));
+            student.setAddress(request.getParameter("txtaddress"));
+
+            try {
+                StudentDao sd = new StudentDao();
+                int i = sd.addStudent(student);
+                if (i > 0) {
+                    RequestDispatcher dispatcher;
+                    dispatcher = request.getRequestDispatcher("index.jsp");
+                } else {
+                    System.out.println("ngu ne ahihi");
+                    RequestDispatcher dispatcher;
+                    dispatcher = request.getRequestDispatcher("index.jsp");
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
     }
 
     /**

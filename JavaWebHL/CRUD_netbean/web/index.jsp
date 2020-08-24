@@ -40,7 +40,7 @@
                 <td> <%= rs.getString("address")%> </td>
                 <td><a href="StudentController?page=edit&id=<%=rs.getString("username")%>">edit</a> </td>
                 <td><a href="StudentController?page=delete&id=<%=rs.getString("username")%>">delete</a> </td>
-                <td><a href="StudentController?page=add&id=<%=rs.getString("username")%>">add</a> </td>
+                <td><a href="StudentController?page=add">add</a> </td>
             </tr>
             <%
                 }

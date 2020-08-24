@@ -18,7 +18,7 @@ public class DataConnection {
 
     String username = "root";
     String password = "";
-    String url = "jdbc:mysql://localhost/pe_wed";
+    String url = "jdbc:mysql://localhost:3306/pe_wed";
 
     public DataConnection() {
 

@@ -6,6 +6,7 @@
 package Dao;
 
 import DB.DataConnection;
+import Model.Student;
 import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,19 +17,36 @@ import java.sql.SQLException;
  * @author root
  */
 public class StudentDao {
+
     Connection conn = null;
     ResultSet rs;
     PreparedStatement ps;
     DataConnection db = new DataConnection();
-    public StudentDao() throws ClassNotFoundException, SQLException{
+
+    public StudentDao() throws ClassNotFoundException, SQLException {
         this.conn = db.getConnection();
     }
-    
-    public ResultSet getStudent() throws SQLException{
+
+    public ResultSet getStudent() throws SQLException {
         String sql = "Select * from student";
         System.out.println("getstudent");
         ps = conn.prepareStatement(sql);
         rs = ps.executeQuery();
         return rs;
+    }
+
+    public int addStudent(Student student) throws SQLException {
+        String sql = "Insert into student value(?,?,?,?,?,?,?)";
+        ps = conn.prepareStatement(sql);
+
+        ps.setString(1, student.getUsername());
+        ps.setString(2, student.getPassword());
+        ps.setString(3, student.getFullname());
+        ps.setString(4, student.getGender());
+        ps.setString(5, student.getBirthday());
+        ps.setString(6, student.getEmail());
+        ps.setString(7, student.getAddress());
+
+        return ps.executeUpdate();
     }
 }
