@@ -13,8 +13,8 @@
         <title>Home Page</title>
     </head>
     <body>
-              
-        <table border="1px solid black" align="center" style=width:750px style="text-align: center">
+       
+             <table border="1px solid black" align="center" style=width:750px style="text-align: center">
             <caption>Student management</caption>
             <tr>
             <td>username</td>
@@ -47,5 +47,7 @@
             %>
 
         </table> 
+      
+       
     </body>
 </html>

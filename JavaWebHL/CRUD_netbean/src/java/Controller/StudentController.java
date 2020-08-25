@@ -24,42 +24,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author root
  */
 public class StudentController extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet StudentController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet StudentController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -67,11 +31,10 @@ public class StudentController extends HttpServlet {
             RequestDispatcher dispatcher;
             StudentDao stdao = new StudentDao();
             if (request.getParameter("page") != null) {
-
                 String page = request.getParameter("page");
-
                 if (page.compareTo("") == 0 || page.compareTo("index") == 0) {
-                    response.sendRedirect("StudentController");
+                    dispatcher = request.getRequestDispatcher("index.jsp");
+                    dispatcher.forward(request, response);
                 }
                 if (page.compareTo("add") == 0) {
                     dispatcher = request.getRequestDispatcher("addnew.jsp");
@@ -84,11 +47,15 @@ public class StudentController extends HttpServlet {
                         getServletContext().setAttribute("userinfo", student);
                         dispatcher = request.getRequestDispatcher("update.jsp");
                         dispatcher.forward(request, response);
-                    }
-                    else{
+                    } else {
                         response.sendRedirect("StudentController");
                     }
 
+                }
+                if(page.compareTo("delete") == 0){
+                    String id = request.getParameter("id");
+                    stdao.deleteUser(id);
+                    response.sendRedirect("StudentController");
                 }
             } else {
                 ResultSet rs = (ResultSet) stdao.getStudent();
@@ -97,8 +64,6 @@ public class StudentController extends HttpServlet {
                 dispatcher = request.getRequestDispatcher("index.jsp");
                 dispatcher.forward(request, response);
             }
-
-//            processRequest(request, response);
         } catch (ClassNotFoundException ex) {
             System.out.println("error doget");
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,14 +72,6 @@ public class StudentController extends HttpServlet {
         }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -127,24 +84,55 @@ public class StudentController extends HttpServlet {
             student.setBirthday(request.getParameter("txtbirthday"));
             student.setEmail(request.getParameter("txtemail"));
             student.setAddress(request.getParameter("txtaddress"));
-
             try {
                 StudentDao sd = new StudentDao();
                 int i = sd.addStudent(student);
                 if (i > 0) {
-                    RequestDispatcher dispatcher;
-                    dispatcher = request.getRequestDispatcher("index.jsp");
+                    response.sendRedirect("StudentController");
+//                    RequestDispatcher dispatcher;
+//                    dispatcher = request.getRequestDispatcher("index.jsp");
                 } else {
-                    System.out.println("ngu ne ahihi");
-                    RequestDispatcher dispatcher;
-                    dispatcher = request.getRequestDispatcher("index.jsp");
+                    response.sendRedirect("StudentController");
+//                    System.out.println("ngu ne ahihi");
+//                    RequestDispatcher dispatcher;
+//                    dispatcher = request.getRequestDispatcher("index.jsp");
                 }
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        if (request.getParameter("updatesubmit") != null) {
+            Student student = new Student();
+            student.setUsername(request.getParameter("txtusername"));
+            student.setPassword(request.getParameter("txtpassword"));
+            student.setFullname(request.getParameter("txtfullname"));
+            student.setGender(request.getParameter("txtgender"));
+            student.setBirthday(request.getParameter("txtbirthday"));
+            student.setEmail(request.getParameter("txtemail"));
+            student.setAddress(request.getParameter("txtaddress"));
+            try {
+                StudentDao sd = new StudentDao();
+                int i = sd.updateStudent(student);
+                if (i > 0) {
+                    response.sendRedirect("StudentController");
+//                    RequestDispatcher dispatcher;
+//                    dispatcher = request.getRequestDispatcher("index.jsp");
+//                    dispatcher.forward(request, response);
+                } else {
+                    response.sendRedirect("StudentController");
+//                    System.out.println("ngu ne ahihi");
+//                    RequestDispatcher dispatcher;
+//                    dispatcher = request.getRequestDispatcher("index.jsp");
+//                    dispatcher.forward(request, response);
+                }
 
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

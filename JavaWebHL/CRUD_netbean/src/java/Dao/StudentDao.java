@@ -68,4 +68,24 @@ public class StudentDao {
         return s;
         
     }
+    public int updateStudent(Student student) throws SQLException{
+        String sql = "update student set password=?, fullname=?, gender=?, birthday=?, email=?, address=? where username=?";
+        ps = conn.prepareStatement(sql);
+        ps.setString(7, student.getUsername());
+        ps.setString(1, student.getPassword());
+        ps.setString(2, student.getFullname());
+        ps.setString(3, student.getGender());
+        ps.setString(4, student.getBirthday());
+        ps.setString(5, student.getEmail());
+        ps.setString(6, student.getAddress());
+        return ps.executeUpdate();
+    }
+
+    public void deleteUser(String username) throws SQLException {
+        String sql = "delete from student where username = ?";
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, username);
+        ps.executeUpdate();
+        
+    }
 }
