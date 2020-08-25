@@ -49,8 +49,6 @@ public class UploadServlet extends javax.servlet.http.HttpServlet {
                     o.println("Uploaded file name: " + fileName + "<br>");
                 }
             }
-        } catch (IOException | FileUploadException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
