@@ -12,6 +12,6 @@
         <title>Buy Page</title>
     </head>
     <body>
-        <h1>Buy lala!</h1>
+        <h1>Buy</h1>
     </body>
 </html>
