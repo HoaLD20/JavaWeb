@@ -16,10 +16,10 @@
     </head>
     <style>
         div.item {
-            vertical-align: top;
+
             display: inline-block;
             text-align: center;
-            width: 120px;
+
         }
         .caption {
             display: block;
@@ -46,17 +46,15 @@
                 }
                 i++;
             %>
-
-
-
             <div class="item">
                 <!--   <%= rs.getString("pro_id")%> 
                 <%= rs.getString("pro_name")%>
                 <%= rs.getFloat("pro_price")%>
                 <%= rs.getInt("pro_quan")%> -->
+
                 <img src="<%=rs.getString("pro_img") + ".jpg"%>" width="80" height="80"/>
-                <span class="caption"><%= rs.getString("pro_des")%><br><a href="HomeServlet?page=addtoCart">Add to Cart</a><br><a href="HomeServlet?page=buy">Buy</a>
-                </span>
+                <h5> <span class="caption"><%= rs.getString("pro_des")%><br><a href="HomeServlet?page=addtoCart">Add to Cart</a><br><a href="HomeServlet?page=buy">Buy</a>
+                    </span></h5>
             </div>
         </div>
 
