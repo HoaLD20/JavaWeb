@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+    <tlib-version>1.0</tlib-version>
+    <short-name>customtag</short-name>
+    <uri>/tlds/customTag</uri>
+   
+    <tag>
+        <name>Header</name>
+        <tag-class>MySource.Header</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>companyName</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+<tag>
+    <name>Footer</name>
+    <tag-class>MySource.Footer</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>companyName</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>java.lang.String</type>
+    </attribute>
+  </tag>
+    <tag>
+        <name>Loop</name>
+        <tag-class>MySource.Loop</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>start</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>int</type>
+        </attribute>
+        <attribute>
+            <name>end</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>int</type>
+        </attribute>
+    </tag>
+    <tag>
+        <name>employee</name>
+        <tag-class>MySource.employee</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>emplyee</name>
+        <tag-class>MySource.emplyee</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+</taglib>
