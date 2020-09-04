@@ -22,7 +22,8 @@
     </global-forwards>
 
     <action-mappings>
-        <action input="/index.jso" name="IndexBean" path="/loginpath" scope="session" type="com.myapp.struts.IndexAction"/>
+        <action input="/success.jsp" name="IndexBean" path="/loginpath" scope="session" type="com.myapp.struts.ShowList"/>
+        <action input="/index.jsp" name="IndexBean" path="/loginpath" scope="session" type="com.myapp.struts.IndexAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     

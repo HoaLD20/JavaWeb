@@ -6,7 +6,9 @@
 package com.myapp.struts;
 
 import Dao.UserDao;
+import Model.UserModel;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -17,11 +19,10 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author root
  */
-public class IndexAction extends org.apache.struts.action.Action {
+public class ShowList extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-    private static final String FAILURE = "failure";
 
     /**
      * This is the action called from the Struts framework.
@@ -37,17 +38,28 @@ public class IndexAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        IndexBean obj = (IndexBean) form;
-        UserDao ud = new UserDao();
+        try {
+            ArrayList beanList = new ArrayList<>();
+            UserDao ud = new UserDao();
+            ResultSet rs = ud.getUser();
+            int i = 0;
+            if (rs != null) {
+                while (rs.next()) {
+                    i++;
+                    UserModel um = new UserModel();
+                   
+                    um.setUsername(rs.getString("FirstName"));
+                    um.setPass(rs.getString("Lastname"));
+                    um.setId(rs.getString("EmployeeID"));
+                   
+                    beanList.add(um);
+                }
+            }
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
-        if(ud.login(obj.getTxtusername(), obj.getTxtpassword())){
-            
-                
-            return mapping.findForward(SUCCESS);
-        }
-        else{
-            return mapping.findForward(FAILURE);
-        }
-//        return mapping.findForward(SUCCESS);
+        return mapping.findForward(SUCCESS);
     }
 }
