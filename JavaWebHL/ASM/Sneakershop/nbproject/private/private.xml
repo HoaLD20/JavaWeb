@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Controller/User/Signup.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Controller/Admin/AdminCategoryServlet.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Controller/User/logout1.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Controller/Admin/AdminCategory.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Controller/User/logout.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Controller/User/Signin.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/web/ScratchCards.jsp</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Models/DAO/SlidersDAO.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Models/DAO/CartsDAO.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Controller/User/SliderController.java</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/web/login.jsp</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/web/index.jsp</file>
+            <file>file:/D:/HoaLD20/JavaWeb/JavaWebHL/ASM/Sneakershop/src/java/Controller/User/AddCart.java</file>
+        </group>
     </open-files>
 </project-private>
