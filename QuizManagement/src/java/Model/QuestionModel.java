@@ -44,11 +44,11 @@ public class QuestionModel {
             resultSet = statement.executeQuery("Select * from question");
 
             while (resultSet.next()) {
-                Question q = new Question(resultSet.getInt("id"), resultSet.getNString("content"), resultSet.getNString("answer"), formatter.parse(resultSet.getString("created")));
-                q.addOption(resultSet.getNString("opt1"));
-                q.addOption(resultSet.getNString("opt2"));
-                q.addOption(resultSet.getNString("opt3"));
-                q.addOption(resultSet.getNString("opt4"));
+                Question q = new Question(resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("answer"), formatter.parse(resultSet.getString("created")));
+                q.addOption(resultSet.getString("opt1"));
+                q.addOption(resultSet.getString("opt2"));
+                q.addOption(resultSet.getString("opt3"));
+                q.addOption(resultSet.getString("opt4"));
                 questions.add(q);
             }
         } catch (SQLException | ParseException ex) {

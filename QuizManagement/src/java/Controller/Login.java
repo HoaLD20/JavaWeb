@@ -39,9 +39,7 @@ public class Login extends BaseServlet {
             String userName = req.getParameter("username");
             String password = req.getParameter("password");
             req.setAttribute("savedUserName", userName);
-
             User user = userModel.login(userName, password);
-
             //Login successfully, save user data to session
             if (user != null) {
                 HttpSession session = req.getSession();

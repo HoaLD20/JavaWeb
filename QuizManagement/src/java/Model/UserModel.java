@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import Model.Entity.*;
 import com.mysql.jdbc.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -29,7 +31,7 @@ public class UserModel {
         ResultSet resultSet = null;
         try {
             connection = DbConnectionHelper.getConnection();
-            statement = connection.prepareStatement("select * from Users where username=? and password=?");
+            statement = connection.prepareStatement("select * from users where username=? and password=?");
             statement.setString(1, userName);
             statement.setString(2, password);
             resultSet = statement.executeQuery();
@@ -104,4 +106,15 @@ public class UserModel {
             }
         }
     }
+    
+//    public static void main(String[] args) {
+//        try {
+//            UserModel u = new UserModel();
+//            System.out.println(u.login("hoa", "123").getUserName());
+//        } catch (Exception ex) {
+//            Logger.getLogger(UserModel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+    
+    
 }
