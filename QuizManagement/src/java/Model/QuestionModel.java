@@ -103,7 +103,7 @@ public class QuestionModel {
         PreparedStatement statement = null;
         try {
             connection = DbConnectionHelper.getConnection();
-            String query = "insert into Question (content, opt1, opt2, opt3, opt4, answer) values(?,?,?,?,?,?)";
+            String query = "insert into question (content, op1, op2, op3, op4, answer) values(?,?,?,?,?,?)";
             statement = connection.prepareStatement(query);
             statement.setString(1, q.getContent());
             statement.setString(2, q.getOption().get(0));
@@ -126,7 +126,7 @@ public class QuestionModel {
         PreparedStatement statement = null;
         try {
             connection = DbConnectionHelper.getConnection();
-            String query = "delete from Question where id=?";
+            String query = "delete from question where id=?";
             statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.execute();
