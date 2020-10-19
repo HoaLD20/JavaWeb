@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : May 16, 2018, 10:57:43 AM
-    Author     : minhndse04560
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -12,26 +7,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="resource/css/index.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Easy CMS</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <title>Quiz Management</title>
     </head>
     <body>
-        <div id="main-panel">
-            <div id="nav-bar">
-                <ul>
-                    <li><a href='Index'>Home</a></li>
-                    <li><a href='TakeQuiz'>Take Quiz</a></li>
-                    <li><a href='MakeQuiz'>Make Quiz</a></li>
-                    <li><a href='ManageQuiz'>Manage Quiz</a></li>
+        <header class="bs-docs-nav navbar navbar-static-top" id="top"> 
+            <div class="container"> 
+                <div class="navbar-header">
+                    <button aria-controls="bs-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#bs-navbar" data-toggle="collapse" type="button"> </button> 
+                    <a href="Index" class="navbar-brand">Home</a> 
+                </div> 
+                <nav class="collapse navbar-collapse" id="bs-navbar"> 
+                    <ul class="nav navbar-nav"> 
+                        <li><a class="navbar-brand" href="TakeQuiz">Take Quiz</a></li>
+                        <li><a class="navbar-brand" href="MakeQuiz">Make Quiz</a></li>
+                        <li><a class="navbar-brand" href="ManageQuiz">Manage Quiz</a></li>
                         <% if (user != null) { %>
-                    <li><a href='Logout'>Logout</a></li>
+                        <li><a class="navbar-brand" href="Logout">Logout</a></li>
                         <% }%>
-                </ul>
+                    </ul> 
+                </nav>
             </div>
-            <div id="main-content">
-                <jsp:include page="<%= includePage%>" />
-            </div>
+        </header>
+        <div id="main-content">
+            <jsp:include page="<%= includePage%>" />
         </div>
     </body>
 </html>

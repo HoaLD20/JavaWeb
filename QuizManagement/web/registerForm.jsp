@@ -1,8 +1,4 @@
-<%-- 
-    Document   : registerForm
-    Created on : May 16, 2018, 11:33:22 AM
-    Author     : minhndse04560
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
@@ -21,8 +17,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="resource/css/common.css">
-        <link rel="stylesheet" href="resource/css/loginForm.css">
+        <link rel="stylesheet" href="resource/css/index.css">
         <title>JSP Page</title>
     </head>
     <body>

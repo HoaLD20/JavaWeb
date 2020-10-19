@@ -1,8 +1,4 @@
-<%-- 
-    Document   : manageQuiz
-    Created on : May 25, 2018, 11:02:57 AM
-    Author     : minhndse04560
---%>
+
 
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Model.Entity.Question"%>
@@ -19,7 +15,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="resource/css/manageQuiz.css">
-        <link rel="stylesheet" href="resource/css/common.css">
+        <link rel="stylesheet" href="resource/css/index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="resource/js/manageQuiz.js"></script>
         <title>JSP Page</title>

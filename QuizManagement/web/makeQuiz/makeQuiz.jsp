@@ -30,10 +30,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="resource/css/makeQuiz.css">
-        <link rel="stylesheet" href="resource/css/common.css">
+        <link rel="stylesheet" href="resource/css/index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Make Quiz</title>
     </head>
     <body>
         <% if (message != null) {%>

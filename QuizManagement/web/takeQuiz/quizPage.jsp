@@ -14,9 +14,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="resource/css/quizPage.css">
-        <link rel="stylesheet" href="resource/css/common.css">
-        <script src="resource/js/quizPage.js"></script>
+        <link rel="stylesheet" href="resource/css/index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -33,11 +31,7 @@
                     for (int i = 0; i < questions.size(); i++) {
                         Question q = questions.get(i);
                 %>
-                
-                
-               
-                
-                
+
                 <div id="q<%=i%>" class="hidden">
                     <input type="hidden" name="q<%=i%>" value="<%=q.getId()%>"
                            <p><%=q.getContent()%></p>

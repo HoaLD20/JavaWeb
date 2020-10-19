@@ -1,14 +1,11 @@
-<%-- 
-    Document   : userInfo
-    Created on : May 21, 2018, 12:01:38 PM
-    Author     : minhndse04560
---%>
+
 
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Model.Entity.QuizHistory"%>
 <%@page import="java.util.List"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     String userName = (String) session.getAttribute("user");
@@ -23,11 +20,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="resource/css/common.css">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="resource/css/index.css">
+        <title>User Information</title>
     </head>
     <body>
+        <link href="index.jsp"/>
         <h1>User Information</h1>
         Username: <%=userName%><br>
         Email: <%=email%><br>
