@@ -14,11 +14,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="resource/css/manageQuiz.css">
         <link rel="stylesheet" href="resource/css/index.css">
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="resource/js/manageQuiz.js"></script>
-        <title>JSP Page</title>
+        
+        <title>Manage Quiz</title>
     </head>
     <body>
         <% if ((questions != null) && (!questions.isEmpty())) {%>
