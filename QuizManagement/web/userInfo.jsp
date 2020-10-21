@@ -1,5 +1,3 @@
-
-
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.text.DecimalFormat"%>
@@ -20,9 +18,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="resource/css/index.css">
+        <link rel="stylesheet" href="resource/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+
         <title>User Information</title>
     </head>
     <body>

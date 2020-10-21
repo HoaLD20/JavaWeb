@@ -1,7 +1,5 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% 
+<%
     String messageClass = (String) request.getAttribute("messageClass");
     String message = (String) request.getAttribute("message");
     String userName = "";
@@ -17,21 +15,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="resource/css/index.css">
+        <link rel="stylesheet" href="resource/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+
         <title>JSP Page</title>
     </head>
     <body>
         <h4 class="loginFornTitle">Registration form</h4>
-        <% if ((message != null)&&(!message.equals(""))) { %>
-        <span class="<%=messageClass %>"><%=message%></span>
-        <% } %>
+        <% if ((message != null) && (!message.equals(""))) {%>
+        <span class="<%=messageClass%>"><%=message%></span>
+        <% }%>
         <form action="#" method="post">
             <input type="hidden" name="request" value="register">
             <table>
                 <tbody>
                     <tr>
                         <td>User Name: </td>
-                        <td><input type="text" value="<%=userName %>" name="username"></td>
+                        <td><input type="text" value="<%=userName%>" name="username"></td>
                     </tr>
                     <tr>
                         <td>Password: </td>
@@ -41,14 +40,14 @@
                         <td>Type</td>
                         <td>
                             <select name='type' value="<%=type%>">
-                                <option value='0' <%=(type == 0) ? "selected" : "" %>>Student</option>
-                                <option value='1' <%=(type == 1) ? "selected" : "" %>>Teacher</option>
+                                <option value='0' <%=(type == 0) ? "selected" : ""%>>Student</option>
+                                <option value='1' <%=(type == 1) ? "selected" : ""%>>Teacher</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>Email: </td>
-                        <td><input type="email" value="<%=email %>" name='email'></td>
+                        <td><input type="email" value="<%=email%>" name='email'></td>
                     </tr>
                     <tr>
                         <td></td>

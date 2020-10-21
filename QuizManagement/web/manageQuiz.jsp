@@ -1,5 +1,3 @@
-
-
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Model.Entity.Question"%>
 <%@page import="java.util.List"%>
@@ -14,10 +12,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="resource/css/index.css">
+        <link rel="stylesheet" href="resource/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
         <title>Manage Quiz</title>
     </head>
     <body>
@@ -41,14 +40,14 @@
                 <tr>
                     <td><%=q.getContent()%></td>
                     <td><%=formatter.format(q.getCreated())%></td>
-                    <td><a onclick="delQuestion('<%=currentPage %>', '<%=q.getId()%>')">Delete</a></td>
+                    <td><a onclick="delQuestion('<%=currentPage%>', '<%=q.getId()%>')">Delete</a></td>
                 </tr>
                 <% } %>
             </tbody>
         </table>
         <ul id="pageList">
             <% for (int i = 0; i < numOfPage; i++) {%>
-            <li class="<%= ((i+1) == currentPage ? "selected" : "") %>"><a href="ManageQuiz?p=<%=i + 1%>"><%=i + 1%></a></li>
+            <li class="<%= ((i + 1) == currentPage ? "selected" : "")%>"><a href="ManageQuiz?p=<%=i + 1%>"><%=i + 1%></a></li>
                 <%} %>
         </ul>
         <% } else { %>

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : accessDenied
-    Created on : May 30, 2018, 11:49:17 AM
-    Author     : minhndse04560
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -10,7 +6,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="resource/css/index.css">
+        <link rel="stylesheet" href="resource/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+
         <title>Error Page</title>
     </head>
     <body>
